@@ -1,140 +1,139 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-	<title>Twitch.tv</title>
-	<meta charset="utf-8"/>
-	<style type="text/css">
-	* {
-		margin: 0;
-		padding: 0;
-	}
+    <head>
+        <title>twitchtv.sixeightone.eu</title>
+        <meta charset="utf-8"/>
+        <style type="text/css">
+            * {
+                margin: 0;
+                padding: 0;
+            }
 
-	body {
-		background: #404040;
-		font-family: Verdana;
-		font-size: 12px;
-	}
+            body {
+                background: #404040;
+                font-family: Verdana;
+                font-size: 12px;
+            }
 
-	a:link, a:visited, a:hover, a:active {
-		color: #91D915;
-	}
+            a:link, a:visited, a:hover, a:active {
+                color: #91D915;
+            }
 
-	a:hover {
-		text-decoration: none;
-	}
+            a:hover {
+                text-decoration: none;
+            }
 
-	#wrapper {
-		-webkit-box-shadow: 1px 1px 5px 0px rgba(0, 0, 0, 0.75);
-		-moz-box-shadow: 1px 1px 5px 0px rgba(0, 0, 0, 0.75);
-		box-shadow: 1px 1px 5px 0px rgba(0, 0, 0, 0.75);
-		background: #5d5d5d;
-		border-radius: 5px;
-		color: #eeeeee;
-		height: 200px;
-		left: 50%;
-		margin: 0 0 0 -150px;
-		position: absolute;
-		top: 20px;
-		width: 300px;
-	}
+            #wrapper {
+                -webkit-box-shadow: 1px 1px 5px 0px rgba(0, 0, 0, 0.75);
+                -moz-box-shadow: 1px 1px 5px 0px rgba(0, 0, 0, 0.75);
+                box-shadow: 1px 1px 5px 0px rgba(0, 0, 0, 0.75);
+                background: #5d5d5d;
+                border-radius: 5px;
+                color: #eeeeee;
+                margin: 10px auto;
+                padding: 10px 0 20px 0;
+                top: 20px;
+                width: 80%;
+            }
 
-	#wrapper h2 {
-		font-size: 16px;
-		padding: 3px;
-		text-align: center;
-	}
+            #wrapper h1 {
+                font-size: 16px;
+                padding: 3px;
+                text-align: center;
+            }
 
-	#wrapper div {
-		padding: 25px 0 0 0;
-		text-align: center;
-	}
+            #wrapper div {
+                padding: 25px 0 0 0;
+                text-align: center;
+            }
 
-	#wrapper ul {
-		list-style-type: none;
-		margin: 5px auto;
-		width: 90%;
-	}
+            #wrapper ul {
+                list-style-type: none;
+                margin: 20px auto;
+                text-align: center;
+                width: 90%;
+            }
 
-	#wrapper ul li {
-		display: block;
-		margin: 0;
-		text-align: center;
-	}
+            #wrapper ul li {
+                display: inline-block;
+                margin: 0;
+                text-align: center;
+            }
 
-	#wrapper input {
-		border: 1px solid #3d3d3d;
-		border-radius: 5px;
-		padding: 5px 0 5px 10px;
-	}
+            #wrapper input {
+                border: 1px solid #3d3d3d;
+                border-radius: 5px;
+                padding: 5px 0 5px 10px;
+            }
 
-	#wrapper button {
-		border-radius: 5px;
-		background-image: -webkit-gradient(linear, left top, left bottom, color-stop(0, #91D915), color-stop(1, #AAFF00));
-		background-image: -o-linear-gradient(bottom, #91D915 0%, #AAFF00 100%);
-		background-image: -moz-linear-gradient(bottom, #91D915 0%, #AAFF00 100%);
-		background-image: -webkit-linear-gradient(bottom, #91D915 0%, #AAFF00 100%);
-		background-image: -ms-linear-gradient(bottom, #91D915 0%, #AAFF00 100%);
-		background-image: linear-gradient(to bottom, #91D915 0%, #AAFF00 100%);
-		border: 2px outset #FFFFFF;
-		cursor: pointer;
-		color: #202020;
-		margin: 5px;
-    	padding: 5px;
-		width: 100px; 
-	}
+            #wrapper button {
+                border-radius: 5px;
+                background-image: -webkit-gradient(linear, left top, left bottom, color-stop(0, #91D915), color-stop(1, #AAFF00));
+                background-image: -o-linear-gradient(bottom, #91D915 0%, #AAFF00 100%);
+                background-image: -moz-linear-gradient(bottom, #91D915 0%, #AAFF00 100%);
+                background-image: -webkit-linear-gradient(bottom, #91D915 0%, #AAFF00 100%);
+                background-image: -ms-linear-gradient(bottom, #91D915 0%, #AAFF00 100%);
+                background-image: linear-gradient(to bottom, #91D915 0%, #AAFF00 100%);
+                border: 2px outset #FFFFFF;
+                cursor: pointer;
+                color: #202020;
+                margin: 5px;
+                padding: 5px;
+                width: 100px; 
+            }
 
-	#stream-url {
-		display: none;
-	}
-	</style>
-	<script src="http://code.jquery.com/jquery-latest.min.js" type="text/javascript"></script>
-	<script>
-	$(document).ready(function() {
-		var inputChannelName = $('#channel-name');
-		var searchButton = $('#button');
+            #stream-url {
+                display: none;
+            }
+        </style>
+        <script src="http://code.jquery.com/jquery-latest.min.js" type="text/javascript"></script>
+        <script>
+            $(document).ready(function () {
+                var inputChannelName = $('#channel-name');
+                var searchButton = $('#button');
 
-		searchButton.on('click', function(){
-			var channelName = $.trim(inputChannelName.val());
+                searchButton.on('click', function () {
+                    var channelName = $.trim(inputChannelName.val());
 
-			if(channelName.length === 0){
-				return;
-			}
+                    if (channelName.length === 0) {
+                        return;
+                    }
 
-			var accessTokenUrl = 'http://api.twitch.tv/api/channels/' + channelName + '/access_token';
+                    var accessTokenUrl = 'http://api.twitch.tv/api/channels/' + channelName + '/access_token';
 
-			$.ajax({
-				type: 'GET',
-				url: accessTokenUrl,
-				async: false,
-				contentType: "application/json",
-				dataType: 'jsonp',
-				success: function(data) {
-					var token = data.token;
-					var sig = data.sig;
-					var streamUrl = 'http://usher.twitch.tv/api/channel/hls/' + channelName + '.m3u8?player=twitchweb&token=' + encodeURIComponent(data.token) + '&sig=' + sig;
+                    $.ajax({
+                        type: 'GET',
+                        url: accessTokenUrl,
+                        async: false,
+                        contentType: "application/json",
+                        dataType: 'jsonp',
+                        success: function (data) {
+                            var token = data.token;
+                            var sig = data.sig;
+                            var streamUrl = 'http://usher.twitch.tv/api/channel/hls/' + channelName + '.m3u8?player=twitchweb&token=' + encodeURIComponent(token) + '&sig=' + sig;
 
-					$('#stream-url')
-						.html('watch <a href="' + streamUrl + '">' + channelName + '</a> channel')
-						.fadeIn();
-				},
-				error: function(e) {
-					$('#stream-url')
-						.html('Cannot find token')
-						.fadeIn();
-				}
-			});
-		});
-	});
-	</script>
-</head>
-<body>
-	<div id="wrapper">
-		<h2>Watch Twitch.tv channels on external player</h2>
-		<ul>
-			<li>Channel: <input placeholder="channel name" type="text" id="channel-name" /></li>
-			<li><button id="button">Get URL</button></li>
-		</ul>
-		<div id="stream-url"></div>
-	</div>
-</body>
+                            $('#stream-url')
+                                    .html('watch <a href="' + streamUrl + '">' + channelName + '</a> channel')
+                                    .fadeIn();
+                        },
+                        error: function (e) {
+                            $('#stream-url')
+                                    .html('Cannot find token')
+                                    .fadeIn();
+                        }
+                    });
+                });
+            });
+        </script>
+    </head>
+    <body>
+        <div id="wrapper">
+            <h1>Find the Video URL of Twitch.tv Streams</h1>
+            <ul>
+                <li>Channel: <input placeholder="channel name" type="text" id="channel-name" /></li>
+                <li><button id="button">Get URL</button></li>
+            </ul>
+            <div id="stream-url"></div>
+        </div>
+    </body>
 </html>
